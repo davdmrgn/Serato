@@ -1,0 +1,630 @@
+[b]ScratchTools 0.0.9.0[/b]
+
+[b][u]Overview of functions[/u][/b]
+
+[b]Reset All Column Settings[/b]
+You can reset all your columns for your crates at once.
+
+
+[b]Export Crates to Textfiles[/b]
+This functions exports all crate files into a human readable text format. These exported text files can additonally be loaded into your favourite spreadsheet application (OpenOffice.org or Microsoft Office for example), and you will be able to see all the information of your whole library with different columns.
+
+
+[b]Crate Export as Text - Choose Columns[/b]
+This option will set which columns you want to export as text.
+
+
+[b]Export Crates to Folder[/b]
+This functions exports a crate to a folder, which means that all tracks which are in that crate will be copied to one folder. ScratchTools will also create a new crate, s you can easily copy the crate file over to a portable USB stick, as well as simply move the exported folder to the USB stick.
+
+
+[b]Delete Orphaned Entries in Library[/b]
+If you have tracks in your library which are not used in any crate, this function will get rid of those tracks. It will not delete those tracks from your harddisk, but will remove them from your library so you are not distracted by tracks in ScratchLIVE which you do not use.
+
+
+[b]Rename Files[/b]
+Renaming files is a problem for ScratchLIVE as it can't find those files anymore. USing this function you can rename files (even using regular expressions!) without ScratchLIVE not finding them anymore because the references inside the ScratchLIVE library will be updated/changed as well. It is quite easy for example to get rid of all whitespaces and replace them with an underscore. This function can also be used to rename folders. So if you don't like whitespaces in your folder simply replace them with underscore using this functions.
+
+
+[b]Find Lost Files[/b]
+If you move files around on your harddisk, ScratchLIVE won't find them anymore - not even in the case that the filename itself has not been changed. Using this function you can fix those broken references. Just tell ScratchTools where it should look for your lost files. For the lazy ones - just use the root folder.
+Right now it will only search for files which have exactly the same filename - in the future we would like to support "intelligent" track identfying, for example by size, playlength, tags etc.
+
+
+[b]Synchronize Crates with Folders[/b]
+Once you add new files to a folder ScratchLIVE does not automatically recognize these new files. With this function you can synchronize one crate to a folder. So let's say you have folder on your harddisk named "HipHop" and an according crate. Once you add new tracks to that folder, just synchronize it using ScratchTools and your crate will automatically have those recent added files. By default only new tracks will be added, old tracks will not be deleted.
+
+
+[b]Synchronize Crates with Folders Creating Subcrates[/b]
+This function will synchronize one crate with the content of one folder, the difference to the previously mentioned funtion is that for each folder a new subcrate will be created. By default only new tracks will be added, old tracks will not be deleted.
+
+
+[b]Full Synchronization option[/b]
+This option will synchronize crates and their folders fully, which means that tracks which are not insde a folder anymore, will automatically removed from the according crate.
+
+
+[b]Move Orphaned Entries in Library to Crate[/b]
+If you have tracks in your library which are not used in any crate, this function will move those tracks into one crate.
+
+
+[b]Automatic Backup of Your Crate and Database Files[/b]
+ScratchTools will automatically backup your crate and DB files, before altering them. They will be put into the same folder as where your "(.)ScratchLIVE" is inside the folder "_ScratchLIVE_Database_Backup". 10 copies will be kept, then the oldest copy of your database files will automatically deleted.
+
+
+[b]Just Backup[/b]
+This function will just backup your DB files and then quit.
+
+
+[b]Skipping Backup[/b]
+If you want you can skip the backup process, however this is NOT recommended.
+
+
+[b]Delete missing tracks from Library[/b]
+This function will delete all tracks which have a question mark "?" in front. These are the files ScratchLIVE can not find without further help. It is recommended to try to automatically relocate those files with the "find-lost-files" function before you completely delete them from your library.
+
+[b]Parent No Crate option[/b]
+(This is for a very specific, uncommon user case, so you might skip reading this)
+This option will take the given path and import all folder inside the path as crates and all the subfolders as subcrate. This is very similar to the standard behaviour when using 'Synchronize Crates with Folders Creating Subcrates' but will not add the given folder as a crate itself. You could manually supply all the folders in that given folder and sync them, but using this option might save you some typing ;)
+
+[b]Copy Library and Audio Files[/b]
+This function will copy/export your complete library including all database information and audio files to a different location, for example an external harddrive.
+
+[b]Map Videotrack to Audio Files[b]
+This function allows you to associate one videotrack to all audio files in one crate.
+
+[b]Sort Crate Order[/b]
+This function will sort your crate order alphabetically.
+
+[b]Import iTunes Library as Crates[/b]
+This function will import your iTunes playlists as crates. Only the files from the drive where your database location is will be added. If necessary you can run the import process multiple times with different database locations to cover all drives.
+
+[b]Import video/aac files[/b]
+Video files will now be imported. Also the list of supported audio files has been extended.
+
+[b]Import Textplaylists[/b]
+You can import text playlists and ScratchTools will create a subcrate with all tracks on the playlist from your library. This is very handy in case you have a gig where you have to make sure to play certain tracks. It is tedious to type in all the tracks, search them in your library and put them into a crate - ScratchTools will do that for you! 
+
+[b]Eliminating Dupe Files[/b]
+You can list different types of duplicate files to reduce your library size and to keep it tidy. We like to differ between three tiypes of dupes:
+1. database dupes: Sometimes databases can get corrupt and SL will create multiple [i]database entries[/i] for the same file. This is solely based on the full filename incl. path (for example "/Volumes/External/myScratchLiveSongs/Nene Cherry - Manchild.mp3")
+2. hard dupes: Files which have exactly the same filename  will be merged. This is solely based on the filename excl. path (for example "Nene Cherry - Manchild.mp3", this could be in two different folders)
+3. similar dupes: Files which have similar artist and song [i]tags[/i] will be put into one crate. They don't have to have exactly the same, it is sufficient if they are similar! This is solely based on the artist and song tag (for example "Nene Cherry - Manchild" and "Nené Cherry - Man Child" will be idnetified as dupes)
+
+
+
+[u][b]How to Use ScratchTools/Examples[/b][/u]
+
+As there is not GUI right now you have to use the commandline. Starting the commandline is pretty easy 
+
+* [b]Windows[/b]:
+Click on start->run, enter "cmd", then enter in the cmd-box (assuming your installation path is "C:\Programs\ScratchTools")
+[code]cd C:\Programs\ScratchTools[/code]
+
+* [b]Mac OSX[/b]
+* start spotlight (alt+spacebar), enter "terminal", then type
+[code]cd /Applications/Scratchtools[/code]
+
+ScratchTools is written in Java to keep it as crossplatform compatible as possible , so you have to start ScratchTools with the java. So the command you would have to enter goes like:
+[code]java -jar -Xms512m -Xmx512m ScratchTools.jar <location_of_scratchLIVE_folder> [-options [additonal parameters]][/code]
+For all examples we assume your path with all the ScratchLIVE library information is in "D:\", so the first parameter is always "D:/".
+
+
+
+[b]Reset All Column Settings[/b]
+The mandatory parameter is a list of semicolon separated columns you would like to see. They will be added in the exact order as you specify them. If you do not supply the 'song' column it will automatically added as the last column.
+[code]ScratchTools <librarylocation> --reset-columns "<col1[;col2;..;coln]>"[/code]
+Columns you can use:
+			added
+			album
+			artist
+			bitrate
+			bpm
+			comment
+			composer
+			filename
+			genre
+			grouping
+			key
+			label
+			length
+			location
+			remixer
+			sampling
+			size
+			track
+			year
+			song
+			video track
+
+
+[i]Example[/i]
+
+You want columns bpm, song, artist, bitrate to be displayed. You have to enter
+[code]java -jar -Xms512m -Xmx512m ScratchTools.jar "D:/" -r "bpm;song;artist;bitrate"[/code]
+
+
+[b]Export Crates to Textfiles[/b]
+Mandatory parameter is the location where to export.
+[code]ScratchTools <librarylocation> --export-crates-to-text "<path>"[/code]
+
+[i]Example[/i]
+
+You want to export your crates as text files to the folder "D:/trackinformation".
+[code]java -jar -Xms512m -Xmx512m ScratchTools.jar "D:/" --export-crates-to-text "/trackinfromation"[/code]
+
+[b]Crate Export as Text - Choose Columns[/b]
+The mandatory parameter is a list of semicolon separated columns you would like to be exported. They will be added in the exact order as you specify them. The column location will be exported as the first column by default.
+[code]ScratchTools <librarylocation> --use-columns "<col1[;col2;..;coln]>"[/code]
+Columns you can use:
+			added
+			album
+			artist
+			bitrate
+			bpm
+			comment
+			composer
+			filename
+			genre
+			grouping
+			key
+			label
+			length
+			location
+			remixer
+			sampling
+			size
+			track
+			year
+			song
+			video track
+
+[code]ScratchTools <librarylocation> --full-sync[/code]
+
+[i]Example[/i]
+You want to export your crates as text files to the folder "D:/trackinformation" with using the columns "artist", "song", "bpm", "comment".
+[code]java -jar -Xms512m -Xmx512m ScratchTools.jar "D:/" --use-columns "artist;song;bpm;comment" --export-crates-to-text "/trackinfromation"[/code]
+
+
+[b]Export Crates to Folder[/b]
+Mandatory parameters are the folder where the files should be copied to the original crate name and a name for the new crate.
+[code]ScratchTools <librarylocation> --export-crates-to-folder "<original-crate-name>;<new-crate-name>;<path>[;<original-crate-name>;<new-crate-name>;<path>.."[/code]
+
+[i]Example[/i]
+
+You want to export your "funk" crate to the folder "D:/good_to_go", the new crate name is "funk_tonight_USB".
+[code]java -jar -Xms512m -Xmx512m ScratchTools.jar "D:/" --export-crates-to-folder "funk;funk_tonight_USB;good_to_go"[/code]
+
+
+[b]Delete Orphaned Entries in Library[/b]
+This option does not need any additional parameter.
+[code]ScratchTools <librarylocation> --delete-orphaned[/code]
+
+[i]Example[/i]
+
+You want to delete all orphaned tracks from your library.
+[code]java -jar -Xms512m -Xmx512m ScratchTools.jar "D:/" --deleted-orphaned[/code]
+
+
+[b]Rename Files[/b]
+Mandatory parameters are the search and replace pattern. Search pattern will be matched agains the complete relative path.
+[code]ScratchTools <librarylocation> --rename-files "<search-pattern>;<replace-pattern>"[/code]
+
+[i]Example[/i]
+
+You want to get rid of the string "Clean" and replace it with "Radio_Version".
+[code]java -jar -Xms512m -Xmx512m ScratchTools.jar "D:/" --rename-files "Clean;Radio_Version"[/code]
+
+
+[b]Find Lost Files[/b]
+Mandatory parameter is the relative (to the root path of <librarylocation>) path where ScratchTools should search for files which are missing.
+[code]ScratchTools <librarylocation> --find-lost "<relativ-path>"[/code]
+
+[i]Example[/i]
+
+You want to find all lost files and you know that they are somewhere below "D:/ssl_tracks".
+[code]java -jar -Xms512m -Xmx512m ScratchTools.jar "D:/" --find-lost "/ssl_tracks"[/code]
+
+
+[b]Synchronize Crates with Folders[/b]
+Mandatory parameters are either
+1. a pair of a. crate-name and b. relative path (to <librarylocation>) to folder to synchronize the crate with. You can specify multiple pairs.
+[code]ScratchTools <librarylocation> --sync "<crate1>;<relativ_path_crate1>[;<crate2>;<relativ_path_crate2>..]"[/code]
+2. a textfile which contains all crates and their relative paths they should be synchronized with.
+[code]ScratchTools <librarylocation> --sync "<relativ_path_to_text_file>"[/code]
+Format of the textfile is (make sure you do [i]not[/i] add an empty line at the end!):
+[code]<crate1>
+<relativ_path_crate1>
+<crate2>
+<relativ_path_crate2>
+..[/code]
+
+
+[i]Example[/i]
+
+You want to synchronize following crates -> folders:
+hiphop -> "D:/ssl_tracks/new_hiphop"
+funk -> "D:/ssl_tracks/other_stuff/funk"
+soul -> "D:/ssl_tracks/other_stuff/motown_music"
+[code]java -jar -Xms512m -Xmx512m ScratchTools.jar "D:/" --sync "hiphop;/ssl_tracks/new_hiphop;funk;/ssl_tracks/other_stuff/funk;soul;/ssl_tracks/other_stuff/motown_music"[/code]
+
+[i]Example[/i]
+
+You want to synchronize following crates -> folders:
+hiphop -> "D:/ssl_tracks/new_hiphop"
+funk -> "D:/ssl_tracks/other_stuff/funk"
+soul -> "D:/ssl_tracks/other_stuff/motown_music"
+
+You have to create a textfile with following content, which is stored in "D:/crates_sync_info.txt":
+
+hiphop
+D:/ssl_tracks/new_hiphop
+funk
+D:/ssl_tracks/other_stuff/funk
+soul
+D:/ssl_tracks/other_stuff/motown_music
+[code]java -jar -Xms512m -Xmx512m ScratchTools.jar "D:/" --sync "D:/crates_sync_info.txt"[/code]
+
+[b]Synchronize Crates with Folders Creating Subcrates[/b]
+Mandatory parameters are either
+1. a pair of a. crate-name and b. relative path (to <librarylocation>) to folder to synchronize the crate with and under which subcrates will be created. You can specify multiple pairs.
+[code]ScratchTools <librarylocation> --sync-subcrates "<crate1>;<relativ_path_crate1>[;<crate2>;<relativ_path_crate2>..]"[/code]
+2. a textfile which contains all crates and their relative paths they should be synchronized with.
+[code]ScratchTools <librarylocation> --sync-subcrates "<relativ_path_to_text_file>"[/code]
+Format of the textfile is (make sure you do [i]not[/i] add an empty line at the end!):
+[code]<crate1>
+<relativ_path_crate1>
+<crate2>
+<relativ_path_crate2>
+..[/code]
+
+
+[i]Example[/i]
+
+You want to synchronize following crates -> folders while creating a subcrate for each subfolder:
+promo -> "D:/ssl_tracks/promo_music"
+bought -> "D:/ssl_tracks/bought_music"
+
+[code]java -jar -Xms512m -Xmx512m ScratchTools.jar "D:/" --sync-subcrates "promo;/ssl_tracks/promo_music;bought;/ssl_tracks/bought_music"[/code]
+
+[i]Example[/i]
+
+You want to synchronize following crates -> folders while creating a subcrate for each subfolder:
+hiphop -> "D:/ssl_tracks/new_hiphop"
+funk -> "D:/ssl_tracks/other_stuff/funk"
+soul -> "D:/ssl_tracks/other_stuff/motown_music"
+
+You have to create a textfile with following content, which is stored in "D:/crates_sync_info.txt":
+
+hiphop
+D:/ssl_tracks/new_hiphop
+funk
+D:/ssl_tracks/other_stuff/funk
+soul
+D:/ssl_tracks/other_stuff/motown_music
+[code]java -jar -Xms512m -Xmx512m ScratchTools.jar "D:/" --sync "D:/crates_sync_info.txt"[/code]
+
+
+
+[b]Full Synchronization option[/b]
+This option does not require any additional parameters.
+[code]ScratchTools <librarylocation> --full-sync[/code]
+
+[i]Example[/i]
+You want to synchronize following crates -> folders while creating a subcrate for each subfolder, and you want only those tracks in the according crate. You want old tracks in the crates to be deleted from that crate.
+promo -> "D:/ssl_tracks/promo_music"
+bought -> "D:/ssl_tracks/bought_music"
+
+
+[code]java -jar -Xms512m -Xmx512m ScratchTools.jar "D:/" --full-sync --sync-subcrates "promo;/ssl_tracks/promo_music;bought;/ssl_tracks/bought_music"[/code]
+
+[b]Move Orphaned Entries in Library to Crate[/b]
+Mandatory option is the name of the crate you want to move the orhpaned tracks to. If the crate is not existing, it will automatically created.
+[code]ScratchTools <librarylocation> --move-orphaned "<crate-name>"[/code]
+
+[i]Example[/i]
+You want to move all orhpaned tracks into a crate named "where_are_you":
+[code]java -jar -Xms512m -Xmx512m ScratchTools.jar "D:/" --move-orphaned "where_are_you"[/code]
+
+
+[b]Just Backup[/b]
+This option does not require any additional parameters.
+[code]ScratchTools <librarylocation> --just-backup[/code]
+
+[i]Example[/i]
+You want to backup your library on your "D:/" drive.
+[code]java -jar -Xms512m -Xmx512m ScratchTools.jar "D:/" --just-backup[/code]
+
+
+[b]Skipping Backup[/b]
+This option does not require any additional parameters.
+[code]ScratchTools <librarylocation> --no-backup[/code]
+
+[i]Example[/i]
+You want to skip backuping your library.
+[code]java -jar -Xms512m -Xmx512m ScratchTools.jar "D:/" --no-backup[/code]
+
+
+[b]Delete missing tracks from Library[/b]
+This option does not require any additional parameters.
+[code]ScratchTools <librarylocation> --delete-missing[/code]
+
+[i]Example[/i]
+You want to delete all missing tracks from your crates and your DB.
+[code]java -jar -Xms512m -Xmx512m ScratchTools.jar "D:/" --delete-missing[/code]
+
+
+[b]Parent No Crate option[/b]
+This option does not require any additional parameters.
+[code]ScratchTools <librarylocation> --parent-no-crate[/code]
+
+[i]Example[/i]
+You have following folder structure:
+D:/ssl_tracks/promo_music
+D:/ssl_tracks/promo_music/digiwaxx
+D:/ssl_tracks/promo_music/franchise
+D:/ssl_tracks/bought_music
+D:/ssl_tracks/ripped_music
+
+and you want following crates:
+promo_music
+promo_music/digiwaxx
+promo_music/franchise
+bought_music
+ripped_music
+
+[code]java -jar -Xms512m -Xmx512m ScratchTools.jar "D:/" --parent-no-crate --sync-subcrates ";/ssl_tracks"[/code]
+
+
+[b]Copy Library and Audio Files[/b]
+The mandatory parameter is the location of where the library should be copied to, this has to be supplied as an [i]absolute path[/i].
+[code]ScratchTools <librarylocation> --copy-library "<absolute_path>[/code]
+
+[i]Example[/i]
+You want to copy your library and audio files to your external drive "E:".
+[code]java -jar -Xms512m -Xmx512m ScratchTools.jar "D:/" --copy-library "E:/"[/code]
+
+
+[b]Map Videotrack to Audio Files[/b]
+Mandatory parameter is the relative path of the video file and the crate name (make sure this video file really exists! As VSL supports video file mapping across different drives there is no security sanity check!).
+[code]ScratchTools <librarylocation> --associate-video "<relativ-path>;<crate-name>"[/code]
+
+[i]Example[/i]
+
+You want all your audio files in the crate "without_video" to be associated with the video file "D:/videos/clips/ambient.avi".
+[code]java -jar -Xms512m -Xmx512m ScratchTools.jar "D:/" --associate-video "/videos/clips/ambient.avi;without_video"[/code]
+
+
+[b]Sort Crate Order[/b]
+Mandatory parameter is the crate name from where the sorting should start. Use "" if you want all crates to be sorted.
+[code]ScratchTools <librarylocation> --sort-crate-order "<crate-name>"[/code]
+
+[i]Example[/i]
+
+You want all your audio files in the crate "without_video" to be associated with the video file "D:/videos/clips/ambient.avi".
+[code]java -jar -Xms512m -Xmx512m ScratchTools.jar "D:/" --associate-video "/videos/clips/ambient.avi;without_video"[/code]
+
+
+[b]Import iTunes library as crates[/b]
+This function has one optional parameter: You can supply the crate into which the itunes playlists should be imported to.
+If you do not supply a cratename then the itunes playlists will be imported as subcrates inside a top level crate named "iTunes". Additionally you can supply the filename/location of your itunes library XML file. Also you can force a full sync of your crates and iTunes playlists. This means that the crates will represent exactly your iTunes playlists. Any tracks which you have manually added into your crates and are not in your iTunes playlists will be deleted from the crate. The same applies to any subcrates you have manually added. 
+[code]ScratchTools <librarylocation> --import-itunes ["<crate-name>"] [--itunes-library-location <absolute-path>] [--full-sync][/code]
+
+
+[i]Examples[/i]
+
+You want all playlists to be imported as subcrates into the crate "myItunesLists".
+[code]java -jar -Xms512m -Xmx512m ScratchTools.jar "C:/Documents and Settings/username/My Music" --import-itunes "myItunesLists"[/code]
+
+You want all playlists to be imported in the root level of your crates. Your "iTunes Library.xml" file is in a different location, "c:\my stuff\iTunes Library.xml"
+[code]java -jar -Xms512m -Xmx512m ScratchTools.jar "C:/Documents and Settings/username/My Music" --import-itunes --itunes-library-location "c:/my stuff/iTunes Library.xml"[/code]
+
+You want all playlists to be imported as subcrates into the crate "myItunesLists" but you also have files on your D: -drive.
+[code]java -jar -Xms512m -Xmx512m ScratchTools.jar "C:/Documents and Settings/username/My Music" --import-itunes "myItunesLists"
+java -jar -Xms512m -Xmx512m ScratchTools.jar "D:" --import-itunes "myItunesLists"[/code]
+
+
+
+[b]Import Textplaylist[/b]
+This will import a text playlist as crates. ScratchTools will create crate for each playlist track, and look for such a matching track from your library. All most likely matching tracks will be put into this crate. The playlist has to be a text file. Each line has to be in the format "Artist - Title".
+Mandatory parameter: The location of your playlist file as an absolute path.
+
+[i]Example[/i]
+
+You want to import a textplaylist as crates. The textplaylists is stored in "D:\HotList.txt"
+[code]java -jar -Xms512m -Xmx512m ScratchTools.jar "D:/" --import-playlist "d:/HotList.txt"[/code]
+
+
+
+[b]Eliminating Dupe Files - List Database Dupes[/b]
+This option does not require any additional parameters. 
+
+[code]ScratchTools <librarylocation> --list-db-dupes[/code]
+
+[i]Example[/i]
+You want to list the database duplicates.
+
+[code]java -jar -Xms512m -Xmx512m ScratchTools.jar "D:/" --list-db-dupes[/code]
+
+
+
+[b]Eliminating Dupe Files - Delete  Database Dupes[/b]
+This option does not require any additional parameters. 
+
+[code]ScratchTools <librarylocation> --delete-db-dupes[/code]
+
+[i]Example[/i]
+You want to list the database duplicates.
+
+[code]java -jar -Xms512m -Xmx512m ScratchTools.jar "D:/" --delete-db-dupes[/code]
+
+
+
+[b]Eliminating Dupe Files - Delete Database Dupes[/b]
+This option does not require any additional parameters. 
+
+[code]ScratchTools <librarylocation> --delete-db-dupes[/code]
+
+[i]Example[/i]
+You want to list the database duplicates.
+
+[code]java -jar -Xms512m -Xmx512m ScratchTools.jar "D:/" --delete-db-dupes[/code]
+
+
+
+[b]Eliminating Dupe Files - List File Dupes[/b]
+This option does not require any additional parameters. 
+
+[code]ScratchTools <librarylocation> --list-file-dupes[/code]
+
+[i]Example[/i]
+You want to list the file duplicates.
+
+[code]java -jar -Xms512m -Xmx512m ScratchTools.jar "D:/" --list-file-dupes[/code]
+
+
+
+[b]Eliminating Dupe Files - Merge File Dupes[/b]
+This function will merge all files which have the same filename. A group of multiple files having the same filename will be replaced/merged by exactly one copy. The copy with the most set cue points will be chosen, because most likely this is the best and most used copy.
+This option does not require any additional parameters. 
+
+[code]ScratchTools <librarylocation> --merge-file-dupes[/code]
+
+[i]Example[/i]
+You want to merge all the file duplicates.
+
+[code]java -jar -Xms512m -Xmx512m ScratchTools.jar "D:/" --delete-db-dupes[/code]
+
+
+
+[b]Eliminating Dupe Files - Create Similar Dupes as Crates[/b]
+This function will group songs which have similar tags into one crate. Be careful cause you can end up with thousands of crates. Scratch Live currently seems to have difficulties when dealing with many crates.
+The process will take long time since each track must be compare with every other track in your database. So if you have 10,000 tracks, then 10,000 * 10,000 = 1,000,000 comparisions have to be made. 
+This option does not require any additional parameters, but you can supply any of these options:
+[code]artist-similarity-threshold[/code]
+[code]title-similarity-threshold[/code]
+[code]overall-similarity-threshold[/code]
+
+[code]ScratchTools <librarylocation> --create-similar-dupe-crates[/code]
+
+[i]Example[/i]
+You want to list the file duplicates.
+
+[code]java -jar -Xms512m -Xmx512m ScratchTools.jar "D:/" --list-file-dupes[/code]
+
+
+
+[b]Similarity Options[/b]
+When comparing tags to find similar files, ScratchTools will rate each track. Three different ratings are used:
+1. artist similarity [default: 50]
+2. title similarity [default: 40]
+3. overall similarity [default: 50]
+All these three criteria must be met so that a track is tagged as being similar to another one. You can set the threshold for each criteria. The value you supply is in percent. So whenever you get too many dupes try adjusting the threshold values. The higher the value, the less dupes, but it also may mean that correct dupes will not be listed. 
+
+[code]ScratchTools <librarylocation> --artist-similarity-threshold <integer[0..100]>[/code]
+[code]ScratchTools <librarylocation> --title-similarity-threshold <integer[0..100]>[/code]
+[code]ScratchTools <librarylocation> --overall-similarity-threshold <integer[0..100]>[/code]
+
+[i]Example[/i]
+You are getting too many wrong dupes listed - the title similarity detection is to sensitive, so you want to raise the title threshold to 80%.
+
+[code]java -jar -Xms512m -Xmx512m ScratchTools.jar "D:/" --create-similar-dupe-crates --title-similarity-threshold 80[/code]
+
+
+
+
+
+[u][b]Quick Overview[/b][/u]
+
+
+Valid options are
+[code]
+scratchtools "<absolute-path-to-library>"
+
+Version 0.0.9.0
+
+Option                          Description                            
+------                          -----------                            
+-a, --full-sync                 Perform a full sync (works only with 
+                                  sync, sync-subcrates                 
+--artist-similarity-threshold   Similarity threshold for artist,
+                                  "<threshhold_in_%_as_integer>"       
+-b, --backup                    Just backup database/crate files       
+-c, --use-columns               Setting columns to export crates to    
+                                  text, "<column-name>[;<column-       
+                                  name>..]"                            
+--create-similar-dupe-crates    Creates crates for similar tracks      
+-d, --delete-orphaned           Delete orphaned tracks                 
+--delete-db-dupes               Delete duplicate DB entries            
+-e, --export-crates-to-text     Export crates to text, "<relative-     
+                                  path>"                               
+-f, --find-lost                 Find lost files "<relative-path>"      
+-g, --move-orphaned             Move orphaned tracks to crate, "<crate-
+                                  name>"                               
+-h, --help                      Print this help info                   
+--import-itunes                 Import iTunes library as crates,       
+                                  "<crate-name>"                       
+--import-playlist               Import playlist as crates, "<absolute- 
+                                  path>"                               
+--itunes-library-location       Location of iTunes library file,       
+                                    "<absolute-path>"                    
+-j, --video                       use video                              
+-k, --export-crates-to-folder   Export crates to folder, "<original-   
+                                  crate-name>;<new-crate-name>;        
+                                  <relative-path>"                     
+--list-db-dupes                 List duplicate DB entries              
+--list-file-dupes               List duplicate files                   
+-m, --rename                    Rename files "<search-pattern>;        
+                                  <replace-pattern>"                   
+--merge-file-dupes              Merge duplicate files                  
+-n, --no-backup                 Don't backup database/crate files      
+-o, --copy-library              Copy library+audio files to different  
+                                  drive "<absolute-path>"              
+--overall-similarity-threshold  Similarity threshold for artist and    
+                                  title, "<threshhold_in_%_as_integer>"
+-p, --sort-crate-order          Sort crate order, "<crate-name>"       
+-q, --number-of-backups         Change number of maximum backups to    
+                                  keep (default 10) "<number-of-       
+                                  backups"                             
+-r, --reset-columns             Reset columns, "<column-name>[;<column-
+                                  name>..]"                            
+-s, --sync                      Sync crates without creating           
+                                  subcrates. "<crate-name>;<relative-  
+                                  path>[;<crate-name>;<relative-       
+                                  path>..]"                            
+--similarity-cache-size         Cache size for similarity dupe         
+                                  detection, "<cache_size_in_%         
+                                  _as_integer>"                        
+-t, --test                      Test                                   
+--title-similarity-threshold    Similarity threshold for artist,       
+                                  "<<threshhold_in_%_as_integer>"      
+-u, --sync-subcrates            Sync crates with creating subcrates.   
+                                  "<crate-name>;<relative-path>[;      
+                                  <crate-name>;<relative-path>..]"     
+-v, --associate-video           Associate video, "<relative-path-of-   
+                                  video>;<crate-name>"                 
+-w, --delete-missing            Delete missing tracks from DB          
+-x, --simulate                  Don't write db and crate files back,   
+                                  just simulate                        
+-y, --parent-no-crate           Don't add parent as crate              
+[/code]
+
+For any path/location please keep in mind [b]not to use backslashes[/b], only forward slashes, so if you have a path like [code]"C:\Documents and Settings\nik39\My Documents"[/code] this should be entered as [code]"C:/Documents and Settings/nik39/My Documents"[/code]
+
+The first parameter is always the folder where ScratchTools should find the ScratchLIVE library information.
+
+Any additional path/location information has to be supplied [i]relative[/i] to the root folder.
+
+
+
+
+[u][b]Download/Installation Notes[/b][/u]
+
+[b]Requirements[/b]
+
+To use ScratchTools you need to have Java version 1.5 (at least) installed. Plus you need 512MB Ram, which is the same amount of minimum memory you should have to use ScratchLIVE.
+
+[b]To download the file you have to be logged into this forum.[/b] Otherwise you will not see the download link.
+
+Download the .jar file, and double click on it, once you have saved it. It will start the installation.
+
+[b]BACKUP YOUR DATA BEFORE USING ScratchTools[/b]

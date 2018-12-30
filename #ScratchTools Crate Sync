@@ -1,0 +1,7 @@
+#mv /Volumes/NOTEMAN/_Serato_x /Volumes/NOTEMAN/_Serato_
+#java -jar -Xms512m -Xmx512m /Volumes/NOTEMAN/Software/ScratchTools/ScratchTools.jar /Volumes/NOTEMAN --full-sync --sync-subcrates "NOTEMAN;/Crates" --delete-missing --sort-crate-order "Crates 1"
+#mv /Volumes/NOTEMAN/_Serato_ /Volumes/NOTEMAN/_Serato_x
+
+#java -jar -Xms512m -Xmx512m /Volumes/Serato/Applications/ScratchTools/ScratchTools.jar /Volumes/Serato --full-sync --sync-subcrates "/Crates" --find-lost "/Crates"
+
+java -jar -Xms512m -Xmx512m /Volumes/Serato/Applications/ScratchTools/ScratchTools.jar "/Volumes/Serato" --parent-no-crate --sync-subcrates ";/Crates"
